@@ -10,7 +10,7 @@ cmds = [
 [phases.build]
 cmds = [
   "cd dashboard && npm run build",
-  "go build -o kalshi-signal-feed"
+  "cd .. && go build -o kalshi-signal-feed"
 ]
 
 [start]
