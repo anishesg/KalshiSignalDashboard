@@ -1,0 +1,56 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+kalshi-signal-feed
+kalshi_api_bot
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Private keys and credentials (NEVER commit these!)
+market_signal_bot.txt
+*.pem
+*.key
+*_private_key*
+*_key*
+*secret*
+*password*
+*credential*
+
+# Logs
+*.log
+logs/
+
+# Config overrides (keep default.toml, ignore local)
+config/local.toml
+config/*.local.toml
+
+# Dashboard build artifacts
+dashboard/dist/
+dashboard/node_modules/
+dashboard/.vite/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+

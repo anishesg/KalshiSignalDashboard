@@ -1,0 +1,166 @@
+.market-row {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.market-row:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--border-default);
+  transform: translateX(2px);
+}
+
+.market-row.selected {
+  background: var(--bg-surface-4);
+  border-left: 2px solid var(--state-active-rail);
+}
+
+.market-row-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-width: 0;
+}
+
+.market-row-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.market-row-ticker {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.market-row-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.market-row-metrics {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.market-row-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100px;
+}
+
+.metric-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.metric-value.tight {
+  color: var(--pos-text);
+}
+
+.metric-subvalue {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.market-row-liquidity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.liquidity-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.liquidity-fill {
+  height: 100%;
+  transition: width var(--transition-base);
+  border-radius: 3px;
+}
+
+.liquidity-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+}
+
+.market-row-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.market-row-action-btn {
+  padding: var(--spacing-xs);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-row-action-btn:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.market-row-action-btn.active {
+  background: var(--bg-surface-4);
+  border-color: var(--accent-neutral);
+  color: var(--text-primary);
+}
+
+.market-row-action-btn.active:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--text-primary);
+}
+

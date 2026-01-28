@@ -1,0 +1,30 @@
+[kalshi]
+api_base_url = "https://api.elections.kalshi.com/trade-api/v2"
+websocket_url = "wss://api.elections.kalshi.com/trade-api/v2/ws"
+# API credentials should be set via environment variables:
+# KALSHI__KALSHI__API_KEY_ID - Your API key ID (e.g., f035131b-5ccd-48a7-9b15-590786456566)
+# KALSHI__KALSHI__PRIVATE_KEY_PATH - Path to private key file (defaults to market_signal_bot.txt)
+
+[ingestion]
+websocket_reconnect_delay_secs = 5
+rest_poll_interval_secs = 60
+rate_limit_per_second = 10
+
+[signals]
+computation_interval_secs = 1
+drift_window_secs = 60
+drift_threshold = 2.0
+imbalance_threshold = 0.3
+volume_surge_threshold = 3.0
+volume_window_secs = 30
+
+[api]
+bind_address = "0.0.0.0:8080"
+cors_origins = ["http://localhost:3000"]
+
+[alerting]
+enabled = true
+# slack_webhook_url and discord_webhook_url should be set via environment variables:
+# KALSHI__ALERTING__SLACK_WEBHOOK_URL and KALSHI__ALERTING__DISCORD_WEBHOOK_URL
+alert_cooldown_secs = 300
+

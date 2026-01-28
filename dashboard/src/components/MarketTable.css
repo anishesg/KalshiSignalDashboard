@@ -1,0 +1,269 @@
+.market-table-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--bg-app);
+}
+
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+/* Sticky Header */
+.market-table-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.market-table-header th {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-muted);
+  text-align: left;
+  white-space: nowrap;
+  background: var(--bg-surface);
+}
+
+/* Column Widths */
+.col-market {
+  min-width: 300px;
+  width: auto;
+}
+
+.col-price {
+  width: 120px;
+  text-align: right;
+}
+
+.col-spread {
+  width: 100px;
+  text-align: right;
+}
+
+.market-table-header .col-price,
+.market-table-header .col-spread {
+  text-align: right;
+}
+
+.col-liquidity {
+  width: 140px;
+  text-align: right;
+}
+
+.market-table-header .col-liquidity {
+  text-align: right;
+}
+
+.col-activity {
+  width: 100px;
+  text-align: right;
+}
+
+.market-table-header .col-activity {
+  text-align: right;
+}
+
+.col-action {
+  width: 100px;
+  text-align: right;
+}
+
+.market-table-header .col-action {
+  text-align: right;
+}
+
+/* Table Body */
+.market-table-body {
+  background: var(--bg-app);
+}
+
+.market-table-row {
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Zebra Striping */
+.market-table-row.even {
+  background: var(--bg-surface);
+}
+
+.market-table-row.odd {
+  background: var(--bg-app);
+}
+
+.market-table-row:hover {
+  background: var(--bg-surface-3) !important;
+}
+
+.market-table-row.selected {
+  background: var(--bg-surface-4) !important;
+  border-left: 2px solid var(--state-active-rail);
+}
+
+.market-table-row td {
+  padding: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+/* Market Column */
+.col-market {
+  text-align: left;
+}
+
+.market-cell-ticker {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.market-cell-title {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Price Column - Right Aligned */
+.col-price {
+  text-align: right;
+}
+
+.price-cell-primary {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.price-cell-secondary {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  line-height: var(--line-height-normal);
+}
+
+/* Spread Column - Right Aligned */
+.col-spread {
+  text-align: right;
+}
+
+.spread-cell-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.spread-cell-value.tight {
+  color: var(--pos-text);
+}
+
+/* Liquidity Column - Right Aligned */
+.col-liquidity {
+  text-align: right;
+}
+
+.liquidity-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+.liquidity-bar {
+  width: 60px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.liquidity-fill {
+  height: 100%;
+  transition: width var(--transition-base);
+  border-radius: 3px;
+}
+
+.liquidity-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Activity Column - Right Aligned */
+.col-activity {
+  text-align: right;
+}
+
+.activity-cell-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+/* Action Column - Right Aligned */
+.col-action {
+  text-align: right;
+}
+
+.action-watch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.action-watch-btn:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.action-watch-btn.active {
+  background: var(--bg-surface-4);
+  border-color: var(--accent-neutral);
+  color: var(--text-primary);
+}
+
+.action-watch-btn.active:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--text-primary);
+}
+
+.table-empty-cell {
+  padding: var(--spacing-2xl) !important;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: var(--font-size-base);
+}
+
