@@ -24,16 +24,17 @@ Railway will build both the frontend (React) and backend (Go), then run the Go s
 
 ## Step 3: Configure Build Settings
 
-Railway should auto-detect the setup, but verify these settings:
+Railway will use the `nixpacks.toml` file which specifies both Node.js and Go.
 
-**Build Command:**
-```bash
-cd dashboard && npm install && npm run build && cd .. && go build -o kalshi-signal-feed
-```
+**The nixpacks.toml file handles:**
+- Installing Node.js 18 and Go 1.21
+- Building the frontend (npm install + npm run build)
+- Building the backend (go build)
+- Starting the server
 
-Or Railway will use the `build.sh` script automatically.
+**No manual configuration needed** - Railway will automatically use nixpacks.toml if present.
 
-**Start Command:**
+**Start Command (auto-detected):**
 ```bash
 ./kalshi-signal-feed
 ```

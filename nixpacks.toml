@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = ["nodejs-18_x", "go"]
+
+[phases.install]
+cmds = [
+  "cd dashboard && npm install",
+  "go mod download"
+]
+
+[phases.build]
+cmds = [
+  "cd dashboard && npm run build",
+  "go build -o kalshi-signal-feed"
+]
+
+[start]
+cmd = "./kalshi-signal-feed"
+
