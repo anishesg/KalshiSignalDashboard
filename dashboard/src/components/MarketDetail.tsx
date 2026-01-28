@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { X, Eye } from 'lucide-react'
 import { useWatchlist } from '../contexts/WatchlistContext'
+import { apiFetch } from '../config'
 import './MarketDetail.css'
 
 interface MarketDetailProps {
@@ -37,8 +38,8 @@ function MarketDetail({ marketTicker, onClose }: MarketDetailProps) {
       try {
         // Fetch market details and orderbook in parallel
         const [marketRes, orderbookRes] = await Promise.all([
-          fetch(`/api/v1/markets/${marketTicker}`),
-          fetch(`/api/v1/markets/${marketTicker}/orderbook`)
+          apiFetch(`/api/v1/markets/${marketTicker}`),
+          apiFetch(`/api/v1/markets/${marketTicker}/orderbook`)
         ])
 
         if (marketRes.ok) {

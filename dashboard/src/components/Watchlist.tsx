@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Eye, X } from 'lucide-react'
 import { useWatchlist } from '../contexts/WatchlistContext'
+import { apiFetch } from '../config'
 import MarketRow from './MarketRow'
 import DetailsPanel from './DetailsPanel'
 import './Watchlist.css'
@@ -36,7 +37,7 @@ function Watchlist() {
       }
 
       try {
-        const response = await fetch('/api/v1/scanner/opportunities')
+        const response = await apiFetch('/api/v1/scanner/opportunities')
         if (response.ok) {
           const data = await response.json()
           const opps = data.opportunities || []

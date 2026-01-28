@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: kalshi-signal-dashboard
+    env: go
+    buildCommand: ./build.sh
+    startCommand: ./kalshi-signal-feed
+    envVars:
+      - key: KALSHI__KALSHI__API_KEY_ID
+        sync: false
+      - key: KALSHI__KALSHI__PRIVATE_KEY_PATH
+        sync: false
+      - key: KALSHI__ALERTING__SLACK_WEBHOOK_URL
+        sync: false
+      - key: KALSHI__ALERTING__DISCORD_WEBHOOK_URL
+        sync: false
+      - key: PORT
+        value: 8080
+

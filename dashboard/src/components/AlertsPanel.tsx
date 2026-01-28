@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TrendingDown, TrendingUp, Zap, DollarSign, CheckCircle, Bell, AlertCircle } from 'lucide-react'
+import { apiFetch } from '../config'
 import './AlertsPanel.css'
 
 interface Alert {
@@ -32,7 +33,7 @@ function AlertsPanel({ selectedMarket, onSelectMarket }: AlertsPanelProps) {
   useEffect(() => {
     const fetchAlerts = async () => {
       try {
-        const response = await fetch('/api/v1/alerts?limit=50')
+        const response = await apiFetch('/api/v1/alerts?limit=50')
         if (response.ok) {
           const data = await response.json()
           let alertsList = data.alerts || []

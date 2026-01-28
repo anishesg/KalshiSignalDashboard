@@ -74,8 +74,8 @@ func Load() (*Config, error) {
 			VolumeWindowSecs:         getEnvInt("KALSHI__SIGNALS__VOLUME_WINDOW_SECS", 30),
 		},
 		API: APIConfig{
-			BindAddress: getEnv("KALSHI__API__BIND_ADDRESS", "0.0.0.0:8080"),
-			CORSOrigins: getEnvSlice("KALSHI__API__CORS_ORIGINS", []string{"http://localhost:3000"}),
+			BindAddress: getBindAddress(),
+			CORSOrigins: getEnvSlice("KALSHI__API__CORS_ORIGINS", []string{"*"}),
 		},
 		Alerting: AlertingConfig{
 			Enabled:           getEnvBool("KALSHI__ALERTING__ENABLED", true),
@@ -211,5 +211,14 @@ func getEnvSlice(key string, defaultValue []string) []string {
 		return strings.Split(value, ",")
 	}
 	return defaultValue
+}
+
+func getBindAddress() string {
+	// Railway and Render set PORT environment variable
+	if port := os.Getenv("PORT"); port != "" {
+		return "0.0.0.0:" + port
+	}
+	// Default to config value or 8080
+	return getEnv("KALSHI__API__BIND_ADDRESS", "0.0.0.0:8080")
 }
 

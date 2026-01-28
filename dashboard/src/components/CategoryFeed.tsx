@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowLeft, List, Table, Grid, Star, Filter, SortAsc } from 'lucide-react'
+import { apiFetch } from '../config'
 import './CategoryFeed.css'
 import MarketRow from './MarketRow'
 import MarketTable from './MarketTable'
@@ -42,7 +43,7 @@ function CategoryFeed({ category, eventTicker, onBack, onSelectMarket, selectedM
   useEffect(() => {
     const fetchOpportunities = async () => {
       try {
-        const response = await fetch('/api/v1/scanner/opportunities')
+        const response = await apiFetch('/api/v1/scanner/opportunities')
         if (response.ok) {
           const data = await response.json()
           let opps = data.opportunities || []

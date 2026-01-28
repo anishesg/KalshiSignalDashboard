@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 	"time"
@@ -62,6 +64,21 @@ func (s *Server) Run(ctx context.Context) error {
 	api.HandleFunc("/stream/signals", s.streamSignals).Methods("GET")
 	api.HandleFunc("/categories", s.getCategories).Methods("GET")
 	api.HandleFunc("/health", s.getHealth).Methods("GET")
+
+	// Serve static files from dashboard/dist
+	staticDir := "./dashboard/dist"
+	if _, err := os.Stat(staticDir); err == nil {
+		// Serve static files
+		router.PathPrefix("/").Handler(http.FileServer(http.Dir(staticDir)))
+		// For SPA routing, serve index.html for non-API routes
+		router.NotFoundHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if !strings.HasPrefix(r.URL.Path, "/api") {
+				http.ServeFile(w, r, filepath.Join(staticDir, "index.html"))
+			} else {
+				http.NotFound(w, r)
+			}
+		})
+	}
 
 	handler := c.Handler(router)
 

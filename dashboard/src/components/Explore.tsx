@@ -18,6 +18,7 @@ import {
   AlertCircle,
   Folder
 } from 'lucide-react'
+import { apiFetch } from '../config'
 import './Explore.css'
 
 interface Category {
@@ -88,7 +89,7 @@ function Explore({ onSelectCategory }: ExploreProps) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('/api/v1/categories')
+        const response = await apiFetch('/api/v1/categories')
         if (response.ok) {
           const data = await response.json()
           setCategories(data.categories || [])

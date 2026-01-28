@@ -7,6 +7,7 @@ import AlertsPanel from './components/AlertsPanel'
 import Watchlist from './components/Watchlist'
 import StatusBar from './components/StatusBar'
 import ConnectionError from './components/ConnectionError'
+import { apiFetch } from './config'
 import './App.css'
 
 type ViewType = 'explore' | 'markets' | 'watchlist' | 'alerts'
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const response = await fetch('/api/v1/health')
+        const response = await apiFetch('/api/v1/health')
         if (response.ok) {
           setConnectionStatus('connected')
           setShowError(false)

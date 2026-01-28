@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { apiFetch } from '../config'
 import './StatusBar.css'
 
 function StatusBar() {
@@ -18,8 +19,8 @@ function StatusBar() {
     const fetchStats = async () => {
       try {
         const [healthRes, alertsRes] = await Promise.all([
-          fetch('/api/v1/health'),
-          fetch('/api/v1/alerts?limit=1')
+          apiFetch('/api/v1/health'),
+          apiFetch('/api/v1/alerts?limit=1')
         ])
         
         if (healthRes.ok) {
