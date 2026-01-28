@@ -54,3 +54,7 @@ dashboard/.vite/
 *.bak
 *.backup
 
+# Documentation files (never commit)
+*.md
+!README.md
+
