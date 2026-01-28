@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowLeft, List, Table, Grid, Star, Filter, SortAsc } from 'lucide-react'
+import { ArrowLeft, List, Table, Star } from 'lucide-react'
 import { apiFetch } from '../config'
 import './CategoryFeed.css'
 import MarketRow from './MarketRow'
@@ -28,11 +28,11 @@ interface CategoryFeedProps {
   category: string
   eventTicker?: string
   onBack: () => void
-  onSelectMarket: (ticker: string) => void
+  onSelectMarket: (ticker: string | null) => void
   selectedMarket: string | null
 }
 
-function CategoryFeed({ category, eventTicker, onBack, onSelectMarket, selectedMarket }: CategoryFeedProps) {
+function CategoryFeed({ category, onBack, onSelectMarket, selectedMarket }: CategoryFeedProps) {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([])
   const [loading, setLoading] = useState(true)
   const [viewMode, setViewMode] = useState<ViewMode>('list')
@@ -188,7 +188,7 @@ function CategoryFeed({ category, eventTicker, onBack, onSelectMarket, selectedM
           <div className="category-feed-details">
             <DetailsPanel
               marketTicker={selectedMarket}
-              onClose={() => onSelectMarket('')}
+              onClose={() => onSelectMarket(null)}
             />
           </div>
         )}

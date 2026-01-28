@@ -19,7 +19,6 @@ function App() {
   const [activeView, setActiveView] = useState<ViewType>('explore')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedEvent, setSelectedEvent] = useState<string | undefined>()
-  const [pinnedCategories, setPinnedCategories] = useState<string[]>([])
 
   useEffect(() => {
     const checkHealth = async () => {
@@ -142,7 +141,6 @@ function App() {
           ) : (
             <Explore
               onSelectCategory={handleCategorySelect}
-              pinnedCategories={pinnedCategories}
             />
           )}
         </div>
