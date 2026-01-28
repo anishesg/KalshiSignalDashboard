@@ -98,10 +98,6 @@ The backend exposes these endpoints:
 - `GET /api/v1/alerts` - Get alerts
 - `GET /api/v1/stream/signals` - Stream signals via Server-Sent Events
 
-## Security Notes
-
-Never commit your API keys, private keys, or webhook URLs. The `.gitignore` is configured to exclude these files. Keep your `market_signal_bot.txt` private key file secure and never commit it.
-
 ## License
 
 This project is private and not licensed for public use.
